@@ -43,3 +43,18 @@ To run (foreground for debugging):
 To run (background):
 # docker-compose up -d
 ```
+
+# acme.json
+You may need to ensure the traefik-data/acme.json file has file mode of 0600 (-rw------):
+```
+# chmod 0600 acme.json
+# stat acme.json
+  File: acme.json
+  Size: 0               Blocks: 0          IO Block: 4096   regular empty file
+Device: fd00h/64768d    Inode: 7347156     Links: 1
+Access: (0600/-rw-------)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2022-02-25 20:03:40.817819252 +0000
+Modify: 2022-02-25 20:23:08.321093730 +0000
+Change: 2022-02-25 20:23:08.321093730 +0000
+ Birth: -
+```
