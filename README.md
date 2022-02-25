@@ -1,5 +1,7 @@
 ### Example Traefik configuration for 3rd party hosting environment with Portainer
 
+*The following commands are for Ubuntu 20.04 LTS*
+
 Ensure you are running the latest OS packages:
 ```
 apt-get update
