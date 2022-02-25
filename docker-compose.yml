@@ -27,7 +27,7 @@ services:
       - "traefik.http.routers.traefik-secure.tls=true"
       - "traefik.http.routers.traefik-secure.tls.certresolver=http"
       - "traefik.http.routers.traefik-secure.entrypoints=websecure"
-      - "traefik.http.routers.traefik-secure.rule=Host(`traefik.lan.cyberthre.at`)"
+      - "traefik.http.routers.traefik-secure.rule=Host(`traefik.yourdomainnamehere.com`)"
       - "traefik.http.routers.traefik-secure.middlewares=user-auth@file"
       - "traefik.http.routers.traefik-secure.service=api@internal"
 
@@ -48,7 +48,7 @@ services:
       - "traefik.docker.network=proxy"
       - "traefik.http.routers.portainer-secure.tls.certresolver=http"
       - "traefik.http.routers.portainer-secure.entrypoints=websecure"
-      - "traefik.http.routers.portainer-secure.rule=Host(`portainer.lan.cyberthre.at`)"
+      - "traefik.http.routers.portainer-secure.rule=Host(`portainer.yourdomainnamehere.com`)"
       - "traefik.http.routers.portainer-secure.service=portainer"
       - "traefik.http.services.portainer.loadbalancer.server.port=9000"
 
