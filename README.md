@@ -32,15 +32,14 @@ apt-get install apache2-utils
 htpasswd -nb admin passwordhere
 ```
 
-Update the traefik-data/configurations/dynamic.yml.
-Change the domainname in the docker labels for traefik and portainer in docker-compose.yml.
+# Required Steps
+```
+1. Update the traefik-data/configurations/dynamic.yml.
+2. Change the domainname in the docker labels for traefik and portainer in docker-compose.yml.
 
 To run (foreground for debugging):
-```
-docker-compose up
-```
+# docker-compose up
 
 To run (background):
-```
-docker-compose up -d
+# docker-compose up -d
 ```
