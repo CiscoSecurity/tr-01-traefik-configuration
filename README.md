@@ -44,7 +44,7 @@ To run (background):
 # docker-compose up -d
 ```
 
-# acme.json
+# acme.json (Let's Encrypt configuration)
 You may need to ensure the traefik-data/acme.json file has file mode of 0600 (-rw------):
 ```
 # chmod 0600 acme.json
