@@ -1,0 +1,56 @@
+
+serversTransport:
+  insecureSkipVerify: true
+
+log:
+  filePath: "/logs/daemon.log"
+  level: ERROR
+  format: common
+
+accessLog:
+  filePath: "/logs/access.log"
+  format: json
+  fields:
+    defaultMode: keep
+    names:
+      ClientUsername: keep
+    headers:
+      defaultMode: keep
+      names:
+          User-Agent: keep
+          Authorization: keep
+          Content-Type: keep
+
+api:
+  dashboard: true
+
+entryPoints:
+  web:
+    address: :80
+    http:
+      redirections:
+        entryPoint:
+          to: websecure
+
+  websecure:
+    address: :443
+    http:
+      middlewares:
+        - secureHeaders@file
+      tls:
+        certResolver: http
+
+providers:
+  docker:
+    endpoint: "unix:///var/run/docker.sock"
+    exposedByDefault: false
+  file:
+    filename: /configurations/dynamic.yml
+
+certificatesResolvers:
+  http:
+    acme:
+      email: addyouremailhere@youremaildomain.com
+      storage: acme.json
+      httpChallenge:
+        entryPoint: web
